@@ -7,15 +7,16 @@ public class Metodos
      public Scanner leitor = new Scanner(System.in);
      private Random aleatorio = new Random();
      private ArrayList<String> cadastrados = new ArrayList<String>();
-     private ArrayList<Integer> senhas = new ArrayList<Integer>();
+   //  private ArrayList<Integer> senhas = new ArrayList<Integer>();
      private String nome;
      private int idade, id=aleatorio.nextInt(100000000);
+     private String senha;
 
     private void criarConta()
     {
 
-        System.out.println("Informe o seu nome2: ");
-        nome=leitor.nextLine();
+            System.out.println("Informe o seu nome2: ");
+            nome=leitor.nextLine();
 
         
         while(nome.matches("[0-9]") || nome.contains("0") || nome.contains("1")  || nome.contains("2") || nome.contains("3") || nome.contains("4")  || nome.contains("5") || nome.contains("6") || nome.contains("7") || nome.contains("8")  || nome.contains("9")) {
@@ -26,8 +27,8 @@ public class Metodos
 
         }
 
-        System.out.println("Informe a sua idade: ");
-        idade=leitor.nextInt();
+            System.out.println("Informe a sua idade: ");
+            idade=leitor.nextInt();
 
         while(idade<18){
 
@@ -37,7 +38,9 @@ public class Metodos
 
         }
 
-        for(int i=0; i<=3; i++){
+            
+
+        for(int i=0; i<3; i++){
 
             System.out.println(".");
 
@@ -52,7 +55,7 @@ public class Metodos
       
         cadastrados.add(nome); 
 
-        System.out.println("CONTA CADASTRADA COM SUCESSO! \nNome: "+nome+" \nidade: "+idade+" \n ID: "+id);
+            System.out.println("CONTA CADASTRADA COM SUCESSO! \nNome: "+nome+" \nidade: "+idade+" \n ID: "+id);
 
         leitor.close();
 
@@ -67,7 +70,7 @@ public class Metodos
 
     public void verMenu(){
 
-        System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas ");
+            System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas ");
 
 
     }

@@ -7,10 +7,11 @@ public class Metodos
      public Scanner leitor = new Scanner(System.in);
      private Random aleatorio = new Random();
      private ArrayList<String> cadastrados = new ArrayList<String>();
-   //  private ArrayList<Integer> senhas = new ArrayList<Integer>();
+     private ArrayList<String> senhas = new ArrayList<String>();
      private String nome;
      private int idade, id=aleatorio.nextInt(100000000);
      private String senha;
+     public String resposta;
 
     private void criarConta()
     {
@@ -45,6 +46,7 @@ public class Metodos
 
             System.err.println("SUA SENHA É MENOR QUE 6 CARACTERES! ("+senha.length()+")!");
             System.out.println("Informe uma senha de no mínimo 6 caracteres");
+            senha=leitor.nextLine();
 
         }
 
@@ -62,10 +64,10 @@ public class Metodos
     }
       
         cadastrados.add(nome); 
+        senhas.add(senha);
 
             System.out.println("CONTA CADASTRADA COM SUCESSO! \nNome: "+nome+" \nidade: "+idade+" \n ID: "+id);
 
-        leitor.close();
 
     }
 
@@ -73,6 +75,19 @@ public class Metodos
     {
 
         this.criarConta();
+
+           System.out.println("Deseja ver o menu?");
+           resposta=leitor.next();
+
+        if(resposta.equalsIgnoreCase("sim") || resposta.equalsIgnoreCase("yes") || resposta.equalsIgnoreCase("yeah") || resposta.equalsIgnoreCase("si")){
+
+            System.out.println("------MENU----- \n 1 - Ver usuário cadastrados \n 2 - Ver senhas cadastradas");
+
+
+
+        }
+
+        leitor.close();
 
     }
 
@@ -83,5 +98,6 @@ public class Metodos
 
     }
 
+    
 
 }

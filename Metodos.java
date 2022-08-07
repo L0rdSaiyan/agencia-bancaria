@@ -1,22 +1,25 @@
 import java.util.Scanner;
 import java.util.Random;
 import java.util.ArrayList;
+
 public class Metodos
 {
 
      public Scanner leitor = new Scanner(System.in);
      private Random aleatorio = new Random();
+
      private ArrayList<String> cadastrados = new ArrayList<String>();
      private ArrayList<String> senhas = new ArrayList<String>();
+
      private String nome;
      private int idade, id=aleatorio.nextInt(100000000);
      private String senha;
      public String resposta;
      public String actionMenu;
-     public double saldo;
+     public double deposito;
+     public double saldo=0;
 
      
-
     private void criarConta()
     {
 
@@ -70,13 +73,13 @@ public class Metodos
         cadastrados.add(nome); 
         senhas.add(senha);
 
-            System.out.println("CONTA CADASTRADA COM SUCESSO! \nNome: " +nome+ " \nidade: " +idade+ " \n ID: " +id);
+            System.out.println("CONTA CADASTRADA COM SUCESSO! \nNome: " +nome+ " \nidade: " +idade+ " \nSaldo: " +saldo+ "  \n ID: " +id);
 
 
     }
     public void verMenu(){
       
-          System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas \n 3 - Fazer Saldo");
+          System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas \n 3 - Fazer Depósito");
           actionMenu=leitor.next();
           
             if(actionMenu.equalsIgnoreCase("1") || actionMenu.equalsIgnoreCase("um") || actionMenu.equalsIgnoreCase("one")){
@@ -87,13 +90,30 @@ public class Metodos
 
              }
 
-            }else if(actionMenu.equalsIgnoreCase("2") || actionMenu.equalsIgnoreCase("dois") ){
+            }else if(actionMenu.equalsIgnoreCase("2") || actionMenu.equalsIgnoreCase("dois") || actionMenu.equalsIgnoreCase("two") || actionMenu.equalsIgnoreCase("dos")){
 
             for (String senha : senhas) {
                 
                 System.out.println("Senhas: \n" + senha);
 
             }
+
+            }else if(actionMenu.equalsIgnoreCase("3") || actionMenu.equalsIgnoreCase("tres") || actionMenu.equalsIgnoreCase("três") || actionMenu.equalsIgnoreCase("three")){
+
+                System.out.println("Informe o valor do depósito: ");
+                deposito=leitor.nextDouble();
+                saldo = saldo+deposito;
+                System.out.println("Depositando...");
+
+                try{
+
+                    Thread.sleep(2000);
+
+                }catch (InterruptedException depositando){
+
+                }
+
+                System.out.println("Seu saldo atual é de: R$" + saldo);
 
             }
 

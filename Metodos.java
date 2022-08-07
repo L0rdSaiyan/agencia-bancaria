@@ -38,7 +38,15 @@ public class Metodos
 
         }
 
-            
+            System.out.println("Informe uma senha de no mínimo 6 caracteres: ");
+            senha=leitor.nextLine();
+
+        while(senha.length()<6){
+
+            System.err.println("SUA SENHA É MENOR QUE 6 CARACTERES! ("+senha.length()+")!");
+            System.out.println("Informe uma senha de no mínimo 6 caracteres");
+
+        }
 
         for(int i=0; i<3; i++){
 

@@ -12,11 +12,12 @@ public class Metodos
      private int idade, id=aleatorio.nextInt(100000000);
      private String senha;
      public String resposta;
+     public String actionMenu;
 
     private void criarConta()
     {
 
-            System.out.println("Informe o seu nome2: ");
+            System.out.println("Informe o seu nome: ");
             nome=leitor.nextLine();
 
         
@@ -39,14 +40,14 @@ public class Metodos
 
         }
 
-            System.out.println("Informe uma senha de no mínimo 6 caracteres: ");
-            senha=leitor.nextLine();
+            System.out.println("Informe uma senha de no mínimo 6 caracteres e sem espaços (Os espaços seram ignorados): ");
+            senha=leitor.next();
 
         while(senha.length()<6){
 
             System.err.println("SUA SENHA É MENOR QUE 6 CARACTERES! ("+senha.length()+")!");
             System.out.println("Informe uma senha de no mínimo 6 caracteres");
-            senha=leitor.nextLine();
+            senha=leitor.next();
 
         }
 
@@ -70,6 +71,24 @@ public class Metodos
 
 
     }
+    public void verMenu(){
+      
+          System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas ");
+          actionMenu=leitor.next();
+          
+            if(actionMenu.equalsIgnoreCase("1") || actionMenu.equalsIgnoreCase("um") || actionMenu.equalsIgnoreCase("one")){
+
+             for (String goku : cadastrados) {
+                
+                System.out.println(goku);
+
+             }
+
+            }
+
+
+
+    }
 
     public void action()
     {
@@ -81,9 +100,11 @@ public class Metodos
 
         if(resposta.equalsIgnoreCase("sim") || resposta.equalsIgnoreCase("yes") || resposta.equalsIgnoreCase("yeah") || resposta.equalsIgnoreCase("si")){
 
-            System.out.println("------MENU----- \n 1 - Ver usuário cadastrados \n 2 - Ver senhas cadastradas");
+            this.verMenu();
 
+        }else{
 
+            this.criarConta();
 
         }
 
@@ -91,13 +112,7 @@ public class Metodos
 
     }
 
-    public void verMenu(){
-
-            System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas ");
-
-
-    }
-
+    
     
 
 }

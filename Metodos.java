@@ -13,6 +13,9 @@ public class Metodos
      private String senha;
      public String resposta;
      public String actionMenu;
+     public double saldo;
+
+     
 
     private void criarConta()
     {
@@ -34,7 +37,7 @@ public class Metodos
 
         while(idade<18){
 
-            System.err.println("VOCÊ NÃO PODE CRIAR UMA CONTA SENDO MENOR DE IDADE ("+idade+")");
+            System.err.println("VOCÊ NÃO PODE CRIAR UMA CONTA SENDO MENOR DE IDADE (" +idade+ ")");
             System.out.println("Informe a sua idade: ");
             idade=leitor.nextInt();
 
@@ -45,7 +48,7 @@ public class Metodos
 
         while(senha.length()<6){
 
-            System.err.println("SUA SENHA É MENOR QUE 6 CARACTERES! ("+senha.length()+")!");
+            System.err.println("SUA SENHA É MENOR QUE 6 CARACTERES! (" +senha.length()+ ")!");
             System.out.println("Informe uma senha de no mínimo 6 caracteres");
             senha=leitor.next();
 
@@ -67,22 +70,30 @@ public class Metodos
         cadastrados.add(nome); 
         senhas.add(senha);
 
-            System.out.println("CONTA CADASTRADA COM SUCESSO! \nNome: "+nome+" \nidade: "+idade+" \n ID: "+id);
+            System.out.println("CONTA CADASTRADA COM SUCESSO! \nNome: " +nome+ " \nidade: " +idade+ " \n ID: " +id);
 
 
     }
     public void verMenu(){
       
-          System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas ");
+          System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas \n 3 - Fazer Saldo");
           actionMenu=leitor.next();
           
             if(actionMenu.equalsIgnoreCase("1") || actionMenu.equalsIgnoreCase("um") || actionMenu.equalsIgnoreCase("one")){
 
              for (String goku : cadastrados) {
                 
-                System.out.println(goku);
+                System.out.println("Usuários: \n" + goku);
 
              }
+
+            }else if(actionMenu.equalsIgnoreCase("2") || actionMenu.equalsIgnoreCase("dois") ){
+
+            for (String senha : senhas) {
+                
+                System.out.println("Senhas: \n" + senha);
+
+            }
 
             }
 
@@ -112,7 +123,6 @@ public class Metodos
 
     }
 
-    
     
 
 }

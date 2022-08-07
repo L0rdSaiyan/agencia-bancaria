@@ -7,6 +7,7 @@ public class Metodos
      public Scanner leitor = new Scanner(System.in);
      private Random aleatorio = new Random();
      private ArrayList<String> cadastrados = new ArrayList<String>();
+     private ArrayList<Integer> senhas = new ArrayList<Integer>();
      private String nome;
      private int idade, id=aleatorio.nextInt(100000000);
 
@@ -66,7 +67,7 @@ public class Metodos
 
     public void verMenu(){
 
-        System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 -");
+        System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas ");
 
 
     }

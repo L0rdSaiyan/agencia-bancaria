@@ -5,12 +5,15 @@ import java.util.ArrayList;
 public class Metodos
 {
 
+     //Objetos das classes Scanner e Leitor
      public Scanner leitor = new Scanner(System.in);
      private Random aleatorio = new Random();
 
+     //ArrayLists para armazenarem dados do usuário
      private ArrayList<String> cadastrados = new ArrayList<String>();
      private ArrayList<String> senhas = new ArrayList<String>();
 
+     //Variáveis características do usuário
      private String nome;
      private int idade, id=aleatorio.nextInt(100000000);
      private String senha;
@@ -22,10 +25,9 @@ public class Metodos
      
     private void criarConta()
     {
-
+             
             System.out.println("Informe o seu nome: ");
             nome=leitor.nextLine();
-
         
         while(nome.matches("[0-9]") || nome.contains("0") || nome.contains("1")  || nome.contains("2") || nome.contains("3") || nome.contains("4")  || nome.contains("5") || nome.contains("6") || nome.contains("7") || nome.contains("8")  || nome.contains("9")) {
 
@@ -79,22 +81,26 @@ public class Metodos
     }
     public void verMenu(){
       
-          System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas \n 3 - Fazer Depósito");
+          System.out.println("--------MENU--------- \n 1 - ver contas cadastradas \n 2 - ver senhas cadastradas \n 3 - Fazer Depósito \n 4 - Criar novo cadastro ");
           actionMenu=leitor.next();
           
             if(actionMenu.equalsIgnoreCase("1") || actionMenu.equalsIgnoreCase("um") || actionMenu.equalsIgnoreCase("one")){
 
+                System.out.println("Usuários: ");
+
              for (String goku : cadastrados) {
                 
-                System.out.println("Usuários: \n" + goku);
+                System.out.println(goku+ ", ");
 
              }
 
             }else if(actionMenu.equalsIgnoreCase("2") || actionMenu.equalsIgnoreCase("dois") || actionMenu.equalsIgnoreCase("two") || actionMenu.equalsIgnoreCase("dos")){
 
+                System.out.println("Senhas: ");
+
             for (String senha : senhas) {
                 
-                System.out.println("Senhas: \n" + senha);
+                System.out.println(senha+ ",");
 
             }
 
@@ -115,9 +121,13 @@ public class Metodos
 
                 System.out.println("Seu saldo atual é de: R$" + saldo);
 
+            }else if(actionMenu.equalsIgnoreCase("4") || actionMenu.equalsIgnoreCase("quatro") || actionMenu.equalsIgnoreCase("four")){
+
+                action();
+
             }
 
-
+            this.verMenu();
 
     }
 
@@ -133,16 +143,35 @@ public class Metodos
 
             this.verMenu();
 
-        }else{
+        }else if(resposta.equalsIgnoreCase("não") || resposta.equalsIgnoreCase("nao") || resposta.equalsIgnoreCase("no")){
 
             this.criarConta();
 
+        }else{
+
+            while(true){
+
+            System.out.println("Deseja ver o menu?");
+            resposta=leitor.next();
+
+            if(resposta.equalsIgnoreCase("sim") || resposta.equalsIgnoreCase("yes") || resposta.equalsIgnoreCase("yeah") || resposta.equalsIgnoreCase("si")){
+
+                this.verMenu();
+    
+            }else if(resposta.equalsIgnoreCase("não") || resposta.equalsIgnoreCase("nao") || resposta.equalsIgnoreCase("no")){
+    
+                this.criarConta();
+    
+
+
+            }
         }
 
-        leitor.close();
 
     }
 
     
+    leitor.close();
 
+}
 }
